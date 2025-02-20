@@ -3,7 +3,7 @@ pipeline {
     environment {
         REGISTRY = "k8s-vga-worker1:5000"
         IMAGE_NAME = "group1-team6-eureka-server"
-        IMAGE_TAG = "v1.0"
+        IMAGE_TAG = "v1.1"
         NAMESPACE = "group1-team6"
         JAVA_HOME = "/usr/local/java21"
         PATH = "${JAVA_HOME}/bin:${env.PATH}"
@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {
                     // Kubenetes에서 특정 Deployment의 컨테이너 이미지를 업데이트 (아래 이름은 중복되지 않게 주의하여 지정, deployment, selector 이름으로)
-                    sh "kubectl set image deployment/eureka-server eureka-server=${REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} --namespace=${NAMESPACE}"
+                    sh "kubectl set image deployment/team6-eureka-server team6-eureka-server=${REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG} --namespace=${NAMESPACE}"
                 }
             }
         }
