@@ -6,12 +6,11 @@ eureka:
     register-with-eureka: false
     fetch-registry: false
 
-metrics:
-  export:
-    prometheus:
-      enabled: true
-
 management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
   tracing:
     enabled: true
     sampling:
